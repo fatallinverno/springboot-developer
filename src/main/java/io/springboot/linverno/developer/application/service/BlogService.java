@@ -2,9 +2,11 @@ package io.springboot.linverno.developer.application.service;
 
 import io.springboot.linverno.developer.domain.entity.Article;
 import io.springboot.linverno.developer.dto.articledto.AddArticleRequest;
+import io.springboot.linverno.developer.dto.articledto.UpdateArticleRequest;
 import io.springboot.linverno.developer.infrastructure.repository.BlogRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -29,6 +31,18 @@ public class BlogService {
 
     public void delete(Long id) {
         blogRepository.deleteById(id);
+    }
+
+    @Transactional
+    public Article update(long id, UpdateArticleRequest request) {
+
+        Article article = blogRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Not Found : " + id));
+
+        article.update(request.getTitle(), request.getContent());
+
+        return article;
+
     }
 
 }

@@ -3,6 +3,7 @@ package io.springboot.linverno.developer.presentation.controller;
 import io.springboot.linverno.developer.application.service.BlogService;
 import io.springboot.linverno.developer.domain.entity.Article;
 import io.springboot.linverno.developer.dto.articledto.AddArticleRequest;
+import io.springboot.linverno.developer.dto.articledto.UpdateArticleRequest;
 import io.springboot.linverno.developer.dto.response.ArticleResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -45,6 +46,13 @@ public class BlogController {
 
         return ResponseEntity.ok().build();
 
+    }
+
+    @PutMapping("/api/articles/{id}")
+    public ResponseEntity<Article> updateArticle(@PathVariable Long id, @RequestBody UpdateArticleRequest request) {
+        Article updatedArticle = blogService.update(id, request);
+
+        return ResponseEntity.ok().body(updatedArticle);
     }
 
 }
