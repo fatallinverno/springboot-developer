@@ -1,4 +1,4 @@
-package io.springboot.linverno.developer.dto.ArticleDto;
+package io.springboot.linverno.developer.dto.articledto;
 
 import io.springboot.linverno.developer.domain.entity.Article;
 import lombok.AllArgsConstructor;
