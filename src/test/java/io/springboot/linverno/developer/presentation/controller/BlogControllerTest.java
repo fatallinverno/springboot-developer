@@ -1,6 +1,7 @@
 package io.springboot.linverno.developer.presentation.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.springboot.linverno.developer.application.service.BlogService;
 import io.springboot.linverno.developer.domain.entity.Article;
 import io.springboot.linverno.developer.dto.articledto.AddArticleRequest;
 import io.springboot.linverno.developer.dto.response.ArticleResponse;
@@ -12,16 +13,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -40,6 +43,8 @@ class BlogControllerTest {
 
     @Autowired
     private BlogRepository blogRepository;
+    @Autowired
+    private BlogService blogService;
 
     @BeforeEach
     public void mockMvcSetup() {
@@ -115,6 +120,27 @@ class BlogControllerTest {
                 .andExpect(jsonPath("$.title").value(title));
 
 
+    }
+
+    @DisplayName("deleteArticle: 블로그 글 삭제에 성공한다.")
+    @Test
+    public void deleteArticle() throws Exception {
+
+        //Given
+        final String url = "/api/articles/{id}";
+        final String title = "title";
+        final String content = "content";
+
+
+        Article savedArticle = blogRepository.save(Article.builder().title(title).content(content).build());
+
+        //When
+        mockMvc.perform(delete(url, savedArticle.getId())).andExpect(status().isOk());
+
+        //Then
+        List<Article> articles = blogRepository.findAll();
+
+        assertThat(articles).isEmpty();
     }
 
 }

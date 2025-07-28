@@ -27,4 +27,8 @@ public class BlogService {
         return blogRepository.save(request.toEntity());
     }
 
+    public void delete(Long id) {
+        blogRepository.deleteById(id);
+    }
+
 }
