@@ -6,9 +6,9 @@ import lombok.Getter;
 @Getter
 public class ArticleListViewResponse {
 
-    private Long id;
-    private String title;
-    private String content;
+    private final Long id;
+    private final String title;
+    private final String content;
 
     public ArticleListViewResponse(Article article) {
         this.id = article.getId();
