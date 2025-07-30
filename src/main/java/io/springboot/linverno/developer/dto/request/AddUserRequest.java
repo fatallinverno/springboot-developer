@@ -1,4 +1,4 @@
-package io.springboot.linverno.developer.dto.articledto;
+package io.springboot.linverno.developer.dto.request;
 
 import lombok.Data;
 

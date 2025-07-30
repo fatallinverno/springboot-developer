@@ -1,7 +1,7 @@
 package io.springboot.linverno.developer.presentation.controller;
 
 import io.springboot.linverno.developer.application.service.UserService;
-import io.springboot.linverno.developer.dto.articledto.AddUserRequest;
+import io.springboot.linverno.developer.dto.request.AddUserRequest;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;

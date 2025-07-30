@@ -2,8 +2,8 @@ package io.springboot.linverno.developer.presentation.controller;
 
 import io.springboot.linverno.developer.application.service.BlogService;
 import io.springboot.linverno.developer.domain.entity.Article;
-import io.springboot.linverno.developer.dto.articledto.AddArticleRequest;
-import io.springboot.linverno.developer.dto.articledto.UpdateArticleRequest;
+import io.springboot.linverno.developer.dto.request.AddArticleRequest;
+import io.springboot.linverno.developer.dto.request.UpdateArticleRequest;
 import io.springboot.linverno.developer.dto.response.ArticleResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

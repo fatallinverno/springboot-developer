@@ -1,8 +1,8 @@
 package io.springboot.linverno.developer.application.service;
 
 import io.springboot.linverno.developer.domain.entity.Article;
-import io.springboot.linverno.developer.dto.articledto.AddArticleRequest;
-import io.springboot.linverno.developer.dto.articledto.UpdateArticleRequest;
+import io.springboot.linverno.developer.dto.request.AddArticleRequest;
+import io.springboot.linverno.developer.dto.request.UpdateArticleRequest;
 import io.springboot.linverno.developer.infrastructure.repository.BlogRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

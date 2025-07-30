@@ -1,4 +1,4 @@
-package io.springboot.linverno.developer.config;
+package io.springboot.linverno.developer.config.security;
 
 import io.springboot.linverno.developer.application.service.UserDetailService;
 import lombok.RequiredArgsConstructor;
