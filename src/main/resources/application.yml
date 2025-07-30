@@ -21,3 +21,7 @@ spring:
   h2:
     console:
       enabled: true
+
+jwt:
+  issuer: fatal_linverno@naver.com
+  secret_key: study-springboot
