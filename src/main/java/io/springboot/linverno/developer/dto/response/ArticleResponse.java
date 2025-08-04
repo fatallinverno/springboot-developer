@@ -11,12 +11,14 @@ import java.time.LocalDateTime;
 public class ArticleResponse {
 
     private Long id;
+    private String author;
     private String title;
     private String content;
     private LocalDateTime createdAt;
 
     public ArticleResponse(Article article) {
         this.id = article.getId();
+        this.author = article.getAuthor();
         this.title = article.getTitle();
         this.content = article.getContent();
         this.createdAt = article.getCreatedAt();
