@@ -22,12 +22,4 @@ public class RefreshTokenService {
 
     }
 
-    @Transactional
-    public void delete() {
-        String token = SecurityContextHolder.getContext().getAuthentication().getCredentials().toString();
-        Long userId = tokenProvider.getUserId(token);
-
-        refreshTokenRepository.deleteByUserId(userId);
-    }
-
 }

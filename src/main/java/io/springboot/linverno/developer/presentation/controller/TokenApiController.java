@@ -28,12 +28,4 @@ public class TokenApiController {
 
     }
 
-    @DeleteMapping("/api/refresh-token")
-    public ResponseEntity deleteRefreshToken() {
-        refreshTokenService.delete();
-
-        return ResponseEntity.ok()
-                .build();
-    }
-
 }
