@@ -1,6 +1,3 @@
-server:
-  port: 8888
-
 spring:
   jpa:
     show-sql: true
@@ -9,3 +6,33 @@ spring:
         format_sql: true
     
     defer-datasource-initialization: true
+#    hibernate:
+#      ddl-auto: create-drop
+
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:sql/data.sql
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+
+  h2:
+    console:
+      enabled: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ...
+            client-secret: ...
+            scope:
+              - email
+              - profile
+
+jwt:
+  issuer: fatal_linverno@naver.com
+  secret_key: study-springboot
