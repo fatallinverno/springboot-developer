@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class RefreshTokenService {
 
-    private TokenProvider tokenProvider;
+    private final TokenProvider tokenProvider;
     private final RefreshTokenRepository refreshTokenRepository;
 
     public RefreshToken findByRefreshToken(String refreshToken) {
